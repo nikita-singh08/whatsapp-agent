@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI WhatsApp Human-in-the-Loop Portal</title>
+  <!-- Google Fonts Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background decorative light blobs -->
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+
+  <div class="app-container">
+    
+    <!-- Sidebar for Conversations -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <span class="logo-icon">🤖</span>
+          <h2>WA Assistant</h2>
+        </div>
+        <span class="badge badge-success">Official API Mode</span>
+      </div>
+
+      <div class="threads-section">
+        <h3>ACTIVE CHATS</h3>
+        <div class="threads-list" id="threadsList">
+          <div class="loading-spinner">Retrieving active conversations...</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="main-content">
+      
+      <!-- Top Chat Header -->
+      <header class="chat-header" id="chatHeader">
+        <div class="chat-info">
+          <div class="avatar" id="activeAvatar">?</div>
+          <div>
+            <h2 id="activeChatName">Select a thread to view</h2>
+            <p id="activeChatStatus">Waiting for user selection...</p>
+          </div>
+        </div>
+        <div class="security-lock">
+          <span class="lock-icon">🔒</span>
+          <span>End-to-End Encryption Restored</span>
+        </div>
+      </header>
+
+      <!-- Chat Feed -->
+      <section class="chat-feed" id="chatFeed">
+        <div class="welcome-screen">
+          <div class="welcome-icon">💬</div>
+          <h2>Human-in-the-Loop Gateway</h2>
+          <p>Select a message thread from the sidebar to review logs, edit AI draft suggestions, and send messages with explicit consent.</p>
+        </div>
+      </section>
+
+      <!-- AI Draft Panel -->
+      <section class="draft-panel" id="draftPanel" style="display: none;">
+        <div class="draft-card">
+          <div class="draft-card-header">
+            <div class="ai-badge">
+              <span class="pulse-dot"></span>
+              🤖 AI Suggested Reply
+            </div>
+            <span class="draft-timestamp" id="draftTime">Just now</span>
+          </div>
+          <div class="draft-body">
+            <textarea id="draftTextArea" placeholder="AI is drafting a reply..."></textarea>
+          </div>
+          <div class="draft-actions">
+            <button class="btn btn-secondary" id="btnReject">Reject Draft</button>
+            <div class="consent-group">
+              <span class="edited-indicator" id="editedIndicator" style="display: none;">✍️ Edited</span>
+              <button class="btn btn-primary" id="btnSend">
+                <span class="btn-text">Approve & Send</span>
+                <span class="send-icon">📤</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Right pane: Audit Logs -->
+    <section class="audit-section">
+      <div class="audit-header">
+        <h3>Compliance Audit Log</h3>
+        <span class="security-badge">PII Masked</span>
+      </div>
+      <div class="audit-logs-list" id="auditLogsList">
+        <div class="loading-spinner">Loading logs...</div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
