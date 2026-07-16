@@ -33,7 +33,7 @@
       "whatsappChatId": "916299057673",
       "contactNameMasked": "~",
       "createdAt": "2026-07-15T13:32:06.480Z",
-      "updatedAt": "2026-07-16T04:30:54.035Z"
+      "updatedAt": "2026-07-16T05:23:30.884Z"
     }
   ],
   "messages": [
@@ -276,6 +276,54 @@
       "direction": "OUTGOING",
       "encryptedBody": "6b91d0241d50db7cc378dea3:2ad33bf15df7ace0d877b91b48b24bc8:06de73b800259f1a1edb9d2e5064b622ec7a5eb4e4da32e6",
       "timestamp": "2026-07-16T04:30:54.035Z"
+    },
+    {
+      "id": "f27e812c-7cda-40f8-9e1a-49964680cf70",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "senderId": "916299057673",
+      "direction": "INCOMING",
+      "encryptedBody": "829d1f6ab0ccccb659f26719:abff0fb1ac8aba4282751391a999e329:c96387",
+      "timestamp": "2026-07-16T05:21:58.638Z"
+    },
+    {
+      "id": "14070965-c599-404c-9685-0f7f4f2f8a29",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "senderId": "SYSTEM_OWNER",
+      "direction": "OUTGOING",
+      "encryptedBody": "bdf35bda2576041ed97b914e:8f28b41c16e067f9527656037e54ff33:c6d58a48e4e54e9cd13804956376bfc57c06ed463bb8896bd9895021",
+      "timestamp": "2026-07-16T05:22:03.616Z"
+    },
+    {
+      "id": "da5c7ace-67b7-4c04-82d6-481d94b07879",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "senderId": "916299057673",
+      "direction": "INCOMING",
+      "encryptedBody": "6f2fb0b33b7b7095b7a61796:0312d9bcb482f386787321b9fdd1e512:486621e6b2",
+      "timestamp": "2026-07-16T05:22:53.112Z"
+    },
+    {
+      "id": "0536a32b-3f0e-4550-9642-2c0d09b917b1",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "senderId": "SYSTEM_OWNER",
+      "direction": "OUTGOING",
+      "encryptedBody": "6285a12ab105c37340c6587f:e7ebe4368fd591dc675bfaef04f33ffa:e442238b105e8de1839cc245f118bdf258150c2f734e195322977b23",
+      "timestamp": "2026-07-16T05:22:57.102Z"
+    },
+    {
+      "id": "999bb579-b46b-460e-9b71-f4cc212ff021",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "senderId": "916299057673",
+      "direction": "INCOMING",
+      "encryptedBody": "c10f60e6adf6c1cc710239e3:4e9cdca87aa076b0c2a84a79d8122b86:4223d9488db9e31c37357fc2f001a3048ecd2d26cdd2f7613d9e281b2ee0a868",
+      "timestamp": "2026-07-16T05:23:25.850Z"
+    },
+    {
+      "id": "f804fa65-c078-4db0-9d40-42b5f219f07c",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "senderId": "SYSTEM_OWNER",
+      "direction": "OUTGOING",
+      "encryptedBody": "eb496edd4dac747db52f2769:5917863a935175a897e01a60f9764e20:de5e03378527cf9c680c27a999d0c892743debbf613f7721fc0a907f6ba45195754c42509131",
+      "timestamp": "2026-07-16T05:23:30.884Z"
     }
   ],
   "drafts": [
@@ -415,6 +463,33 @@
       "interventionRequired": false,
       "status": "AUTO_SENT",
       "createdAt": "2026-07-16T04:30:53.143Z"
+    },
+    {
+      "id": "1aa01395-7635-47ca-86fc-cfb2616d1b72",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "triggerMessageId": "f27e812c-7cda-40f8-9e1a-49964680cf70",
+      "suggestedContent": "Hi there! How can I help you",
+      "interventionRequired": false,
+      "status": "AUTO_SENT",
+      "createdAt": "2026-07-16T05:22:01.333Z"
+    },
+    {
+      "id": "80a423f5-7eb9-46b0-854e-5cbe8e74091f",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "triggerMessageId": "da5c7ace-67b7-4c04-82d6-481d94b07879",
+      "suggestedContent": "Hi there! How can I help you",
+      "interventionRequired": false,
+      "status": "AUTO_SENT",
+      "createdAt": "2026-07-16T05:22:55.645Z"
+    },
+    {
+      "id": "e8e426bc-b3f1-41af-afdb-70cd83daa4ed",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "triggerMessageId": "999bb579-b46b-460e-9b71-f4cc212ff021",
+      "suggestedContent": "Hi! RAG stands for Retrieval-Augmented",
+      "interventionRequired": false,
+      "status": "AUTO_SENT",
+      "createdAt": "2026-07-16T05:23:28.404Z"
     }
   ],
   "auditLogs": [
@@ -537,6 +612,30 @@
       "draftId": "e632b637-f355-4be6-a2ad-30fba4a93a0f",
       "wasModified": false,
       "timestamp": "2026-07-16T04:30:54.039Z"
+    },
+    {
+      "id": "d4ffd69d-6180-4618-bfd7-eda9227d25bd",
+      "userId": "AUTO_PILOT",
+      "actionType": "AUTO_SENT",
+      "draftId": "1aa01395-7635-47ca-86fc-cfb2616d1b72",
+      "wasModified": false,
+      "timestamp": "2026-07-16T05:22:03.618Z"
+    },
+    {
+      "id": "fcbad080-6546-4660-9603-5cefe5cb3a1c",
+      "userId": "AUTO_PILOT",
+      "actionType": "AUTO_SENT",
+      "draftId": "80a423f5-7eb9-46b0-854e-5cbe8e74091f",
+      "wasModified": false,
+      "timestamp": "2026-07-16T05:22:57.104Z"
+    },
+    {
+      "id": "94ec5baf-c97e-42b8-a147-ab92a7c40a36",
+      "userId": "AUTO_PILOT",
+      "actionType": "AUTO_SENT",
+      "draftId": "e8e426bc-b3f1-41af-afdb-70cd83daa4ed",
+      "wasModified": false,
+      "timestamp": "2026-07-16T05:23:30.886Z"
     }
   ]
 }
