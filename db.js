@@ -164,7 +164,7 @@ export const db = {
     return data.drafts.find(d => d.conversationId === conversationId && d.status === 'PENDING');
   },
 
-  async saveDraft({ conversationId, triggerMessageId, suggestedContent }) {
+  async saveDraft({ conversationId, triggerMessageId, suggestedContent, interventionRequired = true }) {
     const data = readDb();
     
     // Deactivate any existing pending draft for this conversation
@@ -180,6 +180,7 @@ export const db = {
       conversationId,
       triggerMessageId,
       suggestedContent,
+      interventionRequired,
       status: 'PENDING',
       createdAt: new Date().toISOString()
     };

@@ -5,14 +5,14 @@
       "whatsappChatId": "15551234567",
       "contactNameMasked": "Jane Cooper",
       "createdAt": "2026-07-13T15:45:38.851Z",
-      "updatedAt": "2026-07-15T09:07:52.734Z"
+      "updatedAt": "2026-07-15T10:23:11.749Z"
     },
     {
       "id": "3fe2f30d-606f-4dae-8641-477420f7903a",
       "whatsappChatId": "15559876543",
       "contactNameMasked": "Security Probe",
       "createdAt": "2026-07-13T15:45:40.368Z",
-      "updatedAt": "2026-07-15T09:11:54.883Z"
+      "updatedAt": "2026-07-15T11:40:18.675Z"
     },
     {
       "id": "761a1d8b-2c67-494f-b8c0-64378f0338b7",
@@ -20,6 +20,20 @@
       "contactNameMasked": "Test User",
       "createdAt": "2026-07-15T09:09:55.379Z",
       "updatedAt": "2026-07-15T09:12:00.717Z"
+    },
+    {
+      "id": "2d6734c4-af42-4361-a11f-81c0c1577ce9",
+      "whatsappChatId": "15550009999",
+      "contactNameMasked": "Bob Pricing",
+      "createdAt": "2026-07-15T10:23:14.764Z",
+      "updatedAt": "2026-07-15T12:01:56.693Z"
+    },
+    {
+      "id": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "whatsappChatId": "916299057673",
+      "contactNameMasked": "~",
+      "createdAt": "2026-07-15T13:32:06.480Z",
+      "updatedAt": "2026-07-16T04:30:54.035Z"
     }
   ],
   "messages": [
@@ -118,6 +132,150 @@
       "direction": "OUTGOING",
       "encryptedBody": "71c0f8bee14049c10b292b00:87cbd791b129b52a106a9df02f57b9ab:472b889814133e014a1e6deb3aa4c8e0182b27246fc5a2928c030cabc7fd6fd1bb21d52a95455ba2ef7aea0022e4481ac2a4f36b1355637e6b248ed019979e9c4e682e99ff3cf389b10c57965a73c06402fcb72931d584fe6f288dc32fb0c5758e87b3ffac07e4fea4722c8a5b2b2678",
       "timestamp": "2026-07-15T09:12:00.717Z"
+    },
+    {
+      "id": "07f3b4ed-d9e8-4188-afa7-6caa431a894e",
+      "conversationId": "669a23ab-a7dc-45b5-8577-d6c20aea5ff0",
+      "senderId": "15551234567",
+      "direction": "INCOMING",
+      "encryptedBody": "a7b7f87d0b11e531c14c1e05:b7575feb47b60b83875ac2dfca498228:5b1feaab5088a6d708b43b3ce3043389eae6686459d7096cd42f03a37fc87c58e9806ac34003f7293c34f691371830c330a8b36f5b454e43a9fbe534b0208058430d2b1a35f8383d730f37ed5345ec8774d1a06fd87b2baa6c0610deb466f5a137042ce984a3f5328f9ffadc90d4c99325c3cab63c410e9554eb0111fbed8898b5ae",
+      "timestamp": "2026-07-15T10:23:11.747Z"
+    },
+    {
+      "id": "c1282dc8-bc3f-4d6f-a479-cf53c7922658",
+      "conversationId": "669a23ab-a7dc-45b5-8577-d6c20aea5ff0",
+      "senderId": "SYSTEM_OWNER",
+      "direction": "OUTGOING",
+      "encryptedBody": "15c2c9c91de7864af5968ffb:dd21bd596441a936d844c4c33410b03a:7a6d4b22e5d91be53aded7ef89f298483ce48faf81c32ce36da4d73e1043d6b20036602e4dd9c1765339c04605aee728b862222b399fdab26bc013d40d8f1c7a8328650533bbe416f1efb693a70a051b0f2d53e6ee7ff8dd735707ee7e189cae6ac76ce8ded8f0736c36b4bd6069729d7174",
+      "timestamp": "2026-07-15T10:23:11.749Z"
+    },
+    {
+      "id": "42fdb568-6f41-4440-8071-299cb1fce835",
+      "conversationId": "3fe2f30d-606f-4dae-8641-477420f7903a",
+      "senderId": "15559876543",
+      "direction": "INCOMING",
+      "encryptedBody": "f5b4cd13715207fe51e4e0fe:d2e0b159abb7a9057365606f2544d843:d123bfeffc7b208722fec63c0d012ddca8d7450220fc1132ed5e528e0ac753050896486d69915377413bd43b91a2ed49047854a499b4e48f52bddc3717ff2e7f14a880d1b22e79efa57106a9f728133f5949cab0bb9578a26e283e0cf56283d7ef6913141617be1e02366e191017f6d51c0a8467",
+      "timestamp": "2026-07-15T10:23:13.256Z"
+    },
+    {
+      "id": "ec3d8130-0c6b-4695-a478-4408d1305659",
+      "conversationId": "2d6734c4-af42-4361-a11f-81c0c1577ce9",
+      "senderId": "15550009999",
+      "direction": "INCOMING",
+      "encryptedBody": "c57957f956383af8f5391e99:ad44c821bd4588c46acf7a5cdace24e5:bad1f7958283ff36ed435ea13d92e8afbced4cd21774568910ddc609ea2461d0fbca473d83520b4c69901c3d84c1939898d03b665c761b0420f56f962a8e07f7354df62b3265aee7dd767d88b0d9d3b3d7b1",
+      "timestamp": "2026-07-15T10:23:14.768Z"
+    },
+    {
+      "id": "56fc6bb3-a6d4-4eca-959e-945ce27a563b",
+      "conversationId": "3fe2f30d-606f-4dae-8641-477420f7903a",
+      "senderId": "SYSTEM_OWNER",
+      "direction": "OUTGOING",
+      "encryptedBody": "319b7a8440e410785479b34d:26d6bd308ce2543f4ad9720aa384afd1:2c6f1eaf420a00e5b824ba8b2dc7be0481eaeb983a892aec228f51f4b56a5a3c617cf3906ee49c645ba7710d150dee33d6bcbf5582fb06aad18573629f4fdc72892b09104d9b8dcc18f1e72cf5970ea40534e8a30520784d882e67e161ba04b644d6c39697f0fc8b9c562e78632b8c71e224bd6eaf2719f0d603b7b4b816",
+      "timestamp": "2026-07-15T11:40:18.675Z"
+    },
+    {
+      "id": "9c8a7c08-0f15-42e8-b365-ef7d604705e5",
+      "conversationId": "2d6734c4-af42-4361-a11f-81c0c1577ce9",
+      "senderId": "SYSTEM_OWNER",
+      "direction": "OUTGOING",
+      "encryptedBody": "6b44cfd08129a065c8e4a020:3304b80a03f4cfdfcc24aefe71896e7b:e6a6d0e058736062055f7ef3e48de6ee30e9fa7f3a232882688e719192b27f9c7d80bcbff4ca2e6ed92117cc8747ab5db585f6c6606d688be598be47e9a6976f08d0960669e086cb60b9f0e40885b521f457ea4a67a016d4be3ac323980c0b890de0b94858d99019292e787ed81a",
+      "timestamp": "2026-07-15T12:01:56.692Z"
+    },
+    {
+      "id": "7b7ea7c4-3391-44ff-a4ce-cc0fa1105044",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "senderId": "916299057673",
+      "direction": "INCOMING",
+      "encryptedBody": "074c913fc2bce36a7d31ad9c:eea9766d2664b6603bb112b84b6b5702:064ae2",
+      "timestamp": "2026-07-15T13:32:06.484Z"
+    },
+    {
+      "id": "31182995-41fe-4cfc-a29f-3d108c434996",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "senderId": "SYSTEM_OWNER",
+      "direction": "OUTGOING",
+      "encryptedBody": "800802d42e975bf36d5bf60d:db2d77ee552cb61f977d724f20b5a4cf:abf976d9a53e13920b947eb0e76aeab342ece91c07deab29009af427ae205d5b44c8b6",
+      "timestamp": "2026-07-15T13:32:10.788Z"
+    },
+    {
+      "id": "ffa8d49e-5994-4151-8114-1ba1b60ea903",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "senderId": "916299057673",
+      "direction": "INCOMING",
+      "encryptedBody": "335d10a267e3be442d2d214b:ad3049436491601fcc01fa613fdda615:4b490568af27676c8a1ec850397a793a9f250b6dff5f8b5a746e524b274c61664912f5d7",
+      "timestamp": "2026-07-15T13:32:37.124Z"
+    },
+    {
+      "id": "45356b72-dc29-4018-b936-56e56cb3801b",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "senderId": "SYSTEM_OWNER",
+      "direction": "OUTGOING",
+      "encryptedBody": "a7be9e025f113b12cde9e154:b28c01ebed3df3a7fa21aa8a955c5598:ff5df64de3cbd179c9e4de696dbd29aefcab",
+      "timestamp": "2026-07-15T13:32:40.754Z"
+    },
+    {
+      "id": "6d7792ad-8c4a-4418-9361-74926cb5836d",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "senderId": "916299057673",
+      "direction": "INCOMING",
+      "encryptedBody": "c24cfe871e9d82258e38c4c9:4fc782cf8c1c7e686680357964dc4b48:db5b63",
+      "timestamp": "2026-07-15T13:32:51.470Z"
+    },
+    {
+      "id": "d9b6f803-c2cf-433e-bbbf-e5e358f78546",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "senderId": "SYSTEM_OWNER",
+      "direction": "OUTGOING",
+      "encryptedBody": "3df168a7e5ef5f0fefe68637:7e7fd863f6dc552c7159b5782e79e93d:de9ddca85dda210dd21f9c2c58d118c356d3fffa3d8c98f3bde74d5bb0f18ea342c183",
+      "timestamp": "2026-07-15T13:32:55.321Z"
+    },
+    {
+      "id": "262bc3d0-d746-4230-9b2d-efab0a71a171",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "senderId": "916299057673",
+      "direction": "INCOMING",
+      "encryptedBody": "79de5a54ad431ebdae391857:60532c9531a98d747c63169e63b6005e:e409ebea",
+      "timestamp": "2026-07-16T04:21:12.504Z"
+    },
+    {
+      "id": "139075e8-da02-4b0e-8403-5dc303c2faed",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "senderId": "SYSTEM_OWNER",
+      "direction": "OUTGOING",
+      "encryptedBody": "daaecd7ceafc36eacdb57834:24ce3d1074811decf9cb0a882ad1ef13:4d1a291a8dd05dc56b181326e772d532c0abb3829bff8e65f92f44d1838c3f",
+      "timestamp": "2026-07-16T04:21:16.713Z"
+    },
+    {
+      "id": "4803fdd1-74bd-495a-afd0-e71f5d2f01cb",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "senderId": "916299057673",
+      "direction": "INCOMING",
+      "encryptedBody": "9ac040ade4ada33cd6fb1a94:f4b77446ce27106a02d0f98b872cfa98:65b41d2f",
+      "timestamp": "2026-07-16T04:30:34.078Z"
+    },
+    {
+      "id": "ddfbfc3a-aa1b-4c88-a41f-60994ff96cee",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "senderId": "SYSTEM_OWNER",
+      "direction": "OUTGOING",
+      "encryptedBody": "2e0a305b93fce9fcd1a38c6e:9ffc08c67b54a5c31fee749178e6c3d9:d27fad00b5ab6b4a4b203c7e268928a6e3a33cccebf68c2e149e8fe12be95928",
+      "timestamp": "2026-07-16T04:30:37.931Z"
+    },
+    {
+      "id": "1947ce79-00ba-4e3b-bd55-bda183f41220",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "senderId": "916299057673",
+      "direction": "INCOMING",
+      "encryptedBody": "e6c3f0b86ebccec3c94540dc:bd7d1859799a1912124bc27bbd2d81f7:469812ab5e",
+      "timestamp": "2026-07-16T04:30:50.791Z"
+    },
+    {
+      "id": "7629d39f-bf5a-45ac-bf49-0cce09a9caa4",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "senderId": "SYSTEM_OWNER",
+      "direction": "OUTGOING",
+      "encryptedBody": "6b91d0241d50db7cc378dea3:2ad33bf15df7ace0d877b91b48b24bc8:06de73b800259f1a1edb9d2e5064b622ec7a5eb4e4da32e6",
+      "timestamp": "2026-07-16T04:30:54.035Z"
     }
   ],
   "drafts": [
@@ -158,7 +316,7 @@
       "conversationId": "669a23ab-a7dc-45b5-8577-d6c20aea5ff0",
       "triggerMessageId": "6a681baa-b0f4-4c6c-b201-21f582ec15d3",
       "suggestedContent": "[MOCK DRAFT] Hi! Thanks for reaching out. Yes, I should be free to connect tomorrow. What time works best for you?",
-      "status": "PENDING",
+      "status": "REJECTED",
       "createdAt": "2026-07-15T09:07:52.736Z"
     },
     {
@@ -176,6 +334,87 @@
       "suggestedContent": "[MOCK DRAFT] Hi! Thanks for your message. I have received it and will follow up with you as soon as I am online.",
       "status": "APPROVED",
       "createdAt": "2026-07-15T09:09:55.381Z"
+    },
+    {
+      "id": "2fa2da41-fcd8-4e8d-93d4-54cab5eb25c3",
+      "conversationId": "669a23ab-a7dc-45b5-8577-d6c20aea5ff0",
+      "triggerMessageId": "07f3b4ed-d9e8-4188-afa7-6caa431a894e",
+      "suggestedContent": "[MOCK DRAFT] Hi! Thanks for reaching out. Yes, I should be free to connect tomorrow. What time works best for you?",
+      "interventionRequired": false,
+      "status": "AUTO_SENT",
+      "createdAt": "2026-07-15T10:23:11.749Z"
+    },
+    {
+      "id": "75003465-163e-4b64-9658-22be52e65ff6",
+      "conversationId": "3fe2f30d-606f-4dae-8641-477420f7903a",
+      "triggerMessageId": "42fdb568-6f41-4440-8071-299cb1fce835",
+      "suggestedContent": "I am sorry, but I cannot share sensitive information such as passwords over chat. Please reach out to me via a secure channel.",
+      "interventionRequired": true,
+      "status": "APPROVED",
+      "createdAt": "2026-07-15T10:23:13.257Z"
+    },
+    {
+      "id": "c76b9293-7c17-45fe-95e2-f1668558e1a5",
+      "conversationId": "2d6734c4-af42-4361-a11f-81c0c1577ce9",
+      "triggerMessageId": "ec3d8130-0c6b-4695-a478-4408d1305659",
+      "suggestedContent": "[MOCK DRAFT] Thank you for the inquiry. I will check on our current rates and send you a formal quote shortly.",
+      "interventionRequired": true,
+      "status": "APPROVED",
+      "createdAt": "2026-07-15T10:23:14.770Z"
+    },
+    {
+      "id": "11e93159-67ae-4ccf-802b-e20130f4f14d",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "triggerMessageId": "7b7ea7c4-3391-44ff-a4ce-cc0fa1105044",
+      "suggestedContent": "Hi there! How can I help you today?",
+      "interventionRequired": false,
+      "status": "AUTO_SENT",
+      "createdAt": "2026-07-15T13:32:09.175Z"
+    },
+    {
+      "id": "329c4c4b-f269-431f-8b28-3c94bd99883d",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "triggerMessageId": "ffa8d49e-5994-4151-8114-1ba1b60ea903",
+      "suggestedContent": "Hi! I can't access",
+      "interventionRequired": false,
+      "status": "AUTO_SENT",
+      "createdAt": "2026-07-15T13:32:39.444Z"
+    },
+    {
+      "id": "285e591e-1fc8-45f4-809a-d118f584babd",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "triggerMessageId": "6d7792ad-8c4a-4418-9361-74926cb5836d",
+      "suggestedContent": "I'm a business owner, not your bank",
+      "interventionRequired": false,
+      "status": "AUTO_SENT",
+      "createdAt": "2026-07-15T13:32:53.916Z"
+    },
+    {
+      "id": "07d4411e-1823-4d99-8dfe-cb134be9b3c6",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "triggerMessageId": "262bc3d0-d746-4230-9b2d-efab0a71a171",
+      "suggestedContent": "Hi there! I'm a business owner,",
+      "interventionRequired": false,
+      "status": "AUTO_SENT",
+      "createdAt": "2026-07-16T04:21:15.180Z"
+    },
+    {
+      "id": "3160963b-8464-4420-b228-4b5bce8d41d3",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "triggerMessageId": "4803fdd1-74bd-495a-afd0-e71f5d2f01cb",
+      "suggestedContent": "Hi there! As a business owner, I",
+      "interventionRequired": false,
+      "status": "AUTO_SENT",
+      "createdAt": "2026-07-16T04:30:36.496Z"
+    },
+    {
+      "id": "e632b637-f355-4be6-a2ad-30fba4a93a0f",
+      "conversationId": "fe9f81c5-c0cb-4755-af6d-c3c72dd82771",
+      "triggerMessageId": "1947ce79-00ba-4e3b-bd55-bda183f41220",
+      "suggestedContent": "Hi there! I'm a business",
+      "interventionRequired": false,
+      "status": "AUTO_SENT",
+      "createdAt": "2026-07-16T04:30:53.143Z"
     }
   ],
   "auditLogs": [
@@ -226,6 +465,78 @@
       "draftId": "1f8b6cea-3f31-4d3f-8d2b-fedff7b0a9ca",
       "wasModified": false,
       "timestamp": "2026-07-15T09:12:00.722Z"
+    },
+    {
+      "id": "f046a1e1-c644-48f1-97c5-1bb5dfc44a95",
+      "userId": "AUTO_PILOT",
+      "actionType": "AUTO_SENT",
+      "draftId": "2fa2da41-fcd8-4e8d-93d4-54cab5eb25c3",
+      "wasModified": false,
+      "timestamp": "2026-07-15T10:23:11.750Z"
+    },
+    {
+      "id": "2cb690ce-1855-4f8b-a5d8-92e75b0111cf",
+      "userId": "PRIMARY_OWNER",
+      "actionType": "DRAFT_APPROVE",
+      "draftId": "75003465-163e-4b64-9658-22be52e65ff6",
+      "wasModified": false,
+      "timestamp": "2026-07-15T11:40:18.677Z"
+    },
+    {
+      "id": "6bce8981-c9a2-4b12-a8b6-3ace6ff8b607",
+      "userId": "PRIMARY_OWNER",
+      "actionType": "DRAFT_APPROVE",
+      "draftId": "c76b9293-7c17-45fe-95e2-f1668558e1a5",
+      "wasModified": false,
+      "timestamp": "2026-07-15T12:01:56.695Z"
+    },
+    {
+      "id": "284080a6-9940-4a6c-8b33-aac208fb0bf5",
+      "userId": "AUTO_PILOT",
+      "actionType": "AUTO_SENT",
+      "draftId": "11e93159-67ae-4ccf-802b-e20130f4f14d",
+      "wasModified": false,
+      "timestamp": "2026-07-15T13:32:10.790Z"
+    },
+    {
+      "id": "c181ee0f-c1fe-468a-8ffa-90f0f4c5e4c0",
+      "userId": "AUTO_PILOT",
+      "actionType": "AUTO_SENT",
+      "draftId": "329c4c4b-f269-431f-8b28-3c94bd99883d",
+      "wasModified": false,
+      "timestamp": "2026-07-15T13:32:40.756Z"
+    },
+    {
+      "id": "a685baaa-7440-47cc-9759-2dbb619ff65f",
+      "userId": "AUTO_PILOT",
+      "actionType": "AUTO_SENT",
+      "draftId": "285e591e-1fc8-45f4-809a-d118f584babd",
+      "wasModified": false,
+      "timestamp": "2026-07-15T13:32:55.324Z"
+    },
+    {
+      "id": "e76a6f5a-0f7d-48b3-86d1-9e3d9b99a190",
+      "userId": "AUTO_PILOT",
+      "actionType": "AUTO_SENT",
+      "draftId": "07d4411e-1823-4d99-8dfe-cb134be9b3c6",
+      "wasModified": false,
+      "timestamp": "2026-07-16T04:21:16.716Z"
+    },
+    {
+      "id": "b5c2037a-c259-4451-a1ba-fd8443d6a777",
+      "userId": "AUTO_PILOT",
+      "actionType": "AUTO_SENT",
+      "draftId": "3160963b-8464-4420-b228-4b5bce8d41d3",
+      "wasModified": false,
+      "timestamp": "2026-07-16T04:30:37.935Z"
+    },
+    {
+      "id": "707fe2d5-98cb-43f4-9efe-59e5812ac008",
+      "userId": "AUTO_PILOT",
+      "actionType": "AUTO_SENT",
+      "draftId": "e632b637-f355-4be6-a2ad-30fba4a93a0f",
+      "wasModified": false,
+      "timestamp": "2026-07-16T04:30:54.039Z"
     }
   ]
 }

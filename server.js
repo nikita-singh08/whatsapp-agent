@@ -62,11 +62,60 @@ function verifySignature(req) {
   return crypto.timingSafeEqual(expectedBuf, incomingBuf);
 }
 
+/**
+ * Dispatch outbound message through WhatsApp Gateway (or mock it if keys are missing)
+ */
+async function dispatchOutgoingMessage(conversation, content) {
+  const phoneId = process.env.WHATSAPP_PHONE_NUMBER_ID;
+  const sysToken = process.env.WHATSAPP_SYSTEM_ACCESS_TOKEN;
+
+  // Mock Gateway execution if keys are default or empty
+  if (!sysToken || sysToken.startsWith('mock_') || !phoneId || phoneId === '1234567890') {
+    console.log(`[WhatsApp API Mock] Outgoing text sent to +${conversation.whatsappChatId} successfully (Mock mode).`);
+    console.log(`[WhatsApp API Mock Payload]: "${content}"`);
+  } else {
+    // Official API execution
+    const response = await fetch(`https://graph.facebook.com/v17.0/${phoneId}/messages`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${sysToken}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        messaging_product: 'whatsapp',
+        to: conversation.whatsappChatId,
+        type: 'text',
+        text: { body: content }
+      })
+    });
+
+    if (!response.ok) {
+      const errDetail = await response.text();
+      throw new Error(`WhatsApp API responded with status ${response.status}: ${errDetail}`);
+    }
+    console.log(`[WhatsApp Cloud API] Message sent to +${conversation.whatsappChatId}.`);
+  }
+
+  // Save outgoing message to database
+  return await db.saveMessage({
+    conversationId: conversation.id,
+    senderId: 'SYSTEM_OWNER',
+    direction: 'OUTGOING',
+    encryptedBody: encryptData(content)
+  });
+}
+
 
 /**
  * 1. Webhook Verification (WhatsApp setup challenge)
  */
 app.get('/webhook', (req, res) => {
+  console.log("\n===== Incoming Webhook (GET Verification) =====");
+  console.log(`Method: ${req.method}`);
+  console.log(`URL: ${req.url}`);
+  console.log("Headers:", JSON.stringify(req.headers, null, 2));
+  console.log("Query Params:", JSON.stringify(req.query, null, 2));
+
   const mode = req.query['hub.mode'];
   const token = req.query['hub.verify_token'];
   const challenge = req.query['hub.challenge'];
@@ -75,13 +124,14 @@ app.get('/webhook', (req, res) => {
 
   if (mode && token) {
     if (mode === 'subscribe' && token === localVerifyToken) {
-      console.log('[Webhook] Webhook successfully verified by Meta.');
+      console.log('[Webhook Decision] webhook verification: successful');
       return res.status(200).send(challenge);
     } else {
-      console.warn('[Webhook] Verification token mismatch.');
+      console.warn('[Webhook Decision] webhook verification: verification token mismatch');
       return res.status(403).send('Forbidden');
     }
   }
+  console.warn('[Webhook Decision] webhook verification: invalid query format');
   return res.status(400).send('Bad Request');
 });
 
@@ -89,9 +139,20 @@ app.get('/webhook', (req, res) => {
  * 2. Webhook Ingestion
  */
 app.post('/webhook', async (req, res) => {
+  console.log("\n===== Incoming Webhook (POST Ingestion) =====");
+  console.log(`Method: ${req.method}`);
+  console.log(`URL: ${req.url}`);
+  console.log("Headers:", JSON.stringify(req.headers, null, 2));
+  console.log("Raw Body:", req.rawBody);
+  console.log("Parsed Body:", JSON.stringify(req.body, null, 2));
+
   try {
+    console.log(`[Webhook Decision] webhook received`);
+
     // Validate signature if WHATSAPP_APP_SECRET is configured
-    if (!verifySignature(req)) {
+    const isSigValid = verifySignature(req);
+    console.log(`[Webhook Decision] signature valid: ${isSigValid}`);
+    if (!isSigValid) {
       console.warn('[Webhook] Signature verification failed.');
       return res.status(401).send('Signature verification failed');
     }
@@ -100,9 +161,11 @@ app.post('/webhook', async (req, res) => {
 
     // Check if it's a valid WhatsApp message event
     if (!body || body.object !== 'whatsapp_business_account') {
+      console.log(`[Webhook Decision] object verified: false (Received object: ${body?.object})`);
       // Return 200 to prevent WhatsApp from retrying irrelevant notifications
       return res.status(200).send('Non-WhatsApp payload');
     }
+    console.log(`[Webhook Decision] object verified: true`);
 
     const entry = body.entry?.[0];
     const changes = entry?.changes?.[0];
@@ -110,8 +173,10 @@ app.post('/webhook', async (req, res) => {
     const messageObject = value?.messages?.[0];
 
     if (!messageObject) {
+      console.log(`[Webhook Decision] message found: false`);
       return res.status(200).send('No message event');
     }
+    console.log(`[Webhook Decision] message found: true`);
 
     const whatsappChatId = messageObject.from; // Sender phone number
     const contactName = value?.contacts?.[0]?.profile?.name || `User_${whatsappChatId.slice(-4)}`;
@@ -134,15 +199,36 @@ app.post('/webhook', async (req, res) => {
       encryptedBody: encryptData(messageText)
     });
 
+    console.log(`[Webhook Decision] draft generation started`);
     // Asynchronously draft the reply to reply fast (WhatsApp gateway requires 200 OK within seconds)
     generateReplyDraft(conversation.id, savedMsg.id, messageText)
-      .then(draft => {
+      .then(async draft => {
         console.log(`[Drafting] Successfully created draft response for conversation: ${conversation.id}`);
+        
+        if (!draft.interventionRequired) {
+          console.log(`[Auto-Pilot] Auto-sending routine response for ${conversation.contactNameMasked}.`);
+          try {
+            await dispatchOutgoingMessage(conversation, draft.suggestedContent);
+            await db.updateDraftStatus(draft.id, 'AUTO_SENT');
+            await db.writeAuditLog({
+              userId: 'AUTO_PILOT',
+              actionType: 'AUTO_SENT',
+              draftId: draft.id,
+              wasModified: false
+            });
+            console.log(`[Auto-Pilot] Routine reply automatically dispatched and logged.`);
+          } catch (err) {
+            console.error(`[Auto-Pilot] Failed to auto-dispatch message:`, err);
+          }
+        } else {
+          console.log(`[Human In The Loop] Action required. Draft held for manual review.`);
+        }
       })
       .catch(err => {
         console.error(`[Drafting] Failed to generate draft for conversation ${conversation.id}:`, err);
       });
 
+    console.log(`[Webhook Decision] response sent (EVENT_RECEIVED)`);
     return res.status(200).send('EVENT_RECEIVED');
   } catch (error) {
     console.error('[Webhook] Ingestion error:', error);
@@ -180,6 +266,7 @@ app.get('/api/approvals', async (req, res) => {
         pendingDraft: pendingDraft ? {
           id: pendingDraft.id,
           suggestedContent: pendingDraft.suggestedContent,
+          interventionRequired: pendingDraft.interventionRequired,
           createdAt: pendingDraft.createdAt
         } : null
       });
@@ -215,44 +302,7 @@ app.post('/api/approve', async (req, res) => {
 
     if (action === 'APPROVED' || action === 'EDITED') {
       console.log(`[Consent] Outgoing message approved for ${conversation.contactNameMasked}. Dispatching payload.`);
-      
-      const phoneId = process.env.WHATSAPP_PHONE_NUMBER_ID;
-      const sysToken = process.env.WHATSAPP_SYSTEM_ACCESS_TOKEN;
-
-      // Mock Gateway execution if keys are default or empty
-      if (!sysToken || sysToken.startsWith('mock_') || !phoneId || phoneId === '1234567890') {
-        console.log(`[WhatsApp API Mock] Outgoing text sent to +${conversation.whatsappChatId} successfully (Mock mode).`);
-        console.log(`[WhatsApp API Mock Payload]: "${finalContent}"`);
-      } else {
-        // Official API execution
-        const response = await fetch(`https://graph.facebook.com/v17.0/${phoneId}/messages`, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${sysToken}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            messaging_product: 'whatsapp',
-            to: conversation.whatsappChatId,
-            type: 'text',
-            text: { body: finalContent }
-          })
-        });
-
-        if (!response.ok) {
-          const errDetail = await response.text();
-          throw new Error(`WhatsApp API responded with status ${response.status}: ${errDetail}`);
-        }
-        console.log(`[WhatsApp Cloud API] Message sent to +${conversation.whatsappChatId}.`);
-      }
-
-      // Save outgoing message to database
-      await db.saveMessage({
-        conversationId: conversation.id,
-        senderId: 'SYSTEM_OWNER',
-        direction: 'OUTGOING',
-        encryptedBody: encryptData(finalContent)
-      });
+      await dispatchOutgoingMessage(conversation, finalContent);
     } else {
       console.log(`[Consent] Draft rejected for ${conversation.contactNameMasked}.`);
     }

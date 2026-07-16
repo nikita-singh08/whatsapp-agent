@@ -218,6 +218,12 @@ body {
   font-weight: bold;
 }
 
+.pending-alert-badge.review-required {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--color-danger);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
 /* Main content workspace */
 .main-content {
   background: var(--bg-surface);
@@ -538,6 +544,7 @@ body {
 .action-edit { color: var(--color-warning); }
 .action-reject { color: var(--color-danger); }
 .action-gen { color: var(--color-primary); }
+.action-autosent { color: #60a5fa; }
 
 .audit-card-time {
   color: var(--text-secondary);

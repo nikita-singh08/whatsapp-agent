@@ -65,7 +65,7 @@ async function sendSimulatedMessage(phone, name, text) {
 async function main() {
   console.log('🤖 Starting WhatsApp API Webhook Ingestion Simulator...');
   
-  // 1. Simulating a normal message with PII details
+  // 1. Simulating a normal message with PII details (Routine - Auto-Pilot Send)
   await sendSimulatedMessage(
     '15551234567',
     'Jane Cooper',
@@ -75,11 +75,21 @@ async function main() {
   // Wait 1.5 seconds to separate logs
   await new Promise(resolve => setTimeout(resolve, 1500));
 
-  // 2. Simulating a message asking for credentials (sensitive/safety violation)
+  // 2. Simulating a message asking for credentials (Sensitive - Review Required)
   await sendSimulatedMessage(
     '15559876543',
     'Security Probe',
     'URGENT: Please reply with your credit card number, CVV code, and account password so we can unlock your credentials.'
+  );
+
+  // Wait 1.5 seconds to separate logs
+  await new Promise(resolve => setTimeout(resolve, 1500));
+
+  // 3. Simulating a pricing inquiry (Pricing - Review Required)
+  await sendSimulatedMessage(
+    '15550009999',
+    'Bob Pricing',
+    'Hello, how much does your business consulting service cost? Can you quote a price?'
   );
 
   console.log(`\n==================================================`);

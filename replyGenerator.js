@@ -58,6 +58,37 @@ function getMockDraft(text) {
 }
 
 /**
+ * Evaluate if a conversation requires human intervention before dispatching.
+ */
+export function shouldRequireIntervention(incomingText, draftText, isSafetyRefusal) {
+  if (isSafetyRefusal) return true;
+
+  const lowerIncoming = (incomingText || '').toLowerCase();
+  const lowerDraft = (draftText || '').toLowerCase();
+
+  // 1. Pricing and Transactions
+  const pricingKeywords = ['price', 'cost', 'how much', 'rate', 'quote', 'charge', 'fee', 'payment', 'billing', 'usd'];
+  const pricingPatterns = [/[$€£₹]/, /\d+\s*(dollars|euros|pounds|rupees|rs)/i];
+  
+  const hasPricingKeyword = pricingKeywords.some(kw => lowerIncoming.includes(kw) || lowerDraft.includes(kw));
+  const hasPricingPattern = pricingPatterns.some(pat => pat.test(lowerIncoming) || pat.test(lowerDraft));
+  
+  if (hasPricingKeyword || hasPricingPattern) {
+    return true;
+  }
+
+  // 2. Urgent Escalations
+  const urgentKeywords = ['urgent', 'cancel', 'refund', 'broken', 'error', 'failed', 'fail', 'emergency', 'stop'];
+  const hasUrgency = urgentKeywords.some(kw => lowerIncoming.includes(kw));
+  
+  if (hasUrgency) {
+    return true;
+  }
+
+  return false;
+}
+
+/**
  * Core draft generator workflow.
  */
 export async function generateReplyDraft(conversationId, incomingMessageId, rawMessageText) {
@@ -68,7 +99,8 @@ export async function generateReplyDraft(conversationId, incomingMessageId, rawM
     return await db.saveDraft({
       conversationId,
       triggerMessageId: incomingMessageId,
-      suggestedContent: safetyRefusal
+      suggestedContent: safetyRefusal,
+      interventionRequired: true
     });
   }
 
@@ -136,10 +168,14 @@ Provide ONLY the text of the drafted response to the Client's last message. No e
     }
   }
 
+  // Determine if human review is needed
+  const interventionRequired = shouldRequireIntervention(rawMessageText, draftedReply, false);
+
   // 4. Save Draft to DB
   return await db.saveDraft({
     conversationId,
     triggerMessageId: incomingMessageId,
-    suggestedContent: draftedReply
+    suggestedContent: draftedReply,
+    interventionRequired
   });
 }

@@ -69,7 +69,7 @@ function renderThreadsList() {
       <div class="thread-card-header">
         <span class="thread-name">${thread.contactNameMasked}</span>
         <div class="thread-badge-container">
-          ${thread.pendingDraft ? '<span class="pending-alert-badge">Pending Draft</span>' : ''}
+          ${thread.pendingDraft ? '<span class="pending-alert-badge review-required">🚨 Review Required</span>' : ''}
         </div>
       </div>
       <div class="thread-preview">${cleanPreview}</div>
@@ -238,6 +238,9 @@ function renderAuditLogs(logs) {
     } else if (log.actionType === 'DRAFT_REJECT') {
       actionClass = 'action-reject';
       actionLabel = 'Draft Rejected';
+    } else if (log.actionType === 'AUTO_SENT') {
+      actionClass = 'action-autosent';
+      actionLabel = '⚡ Auto-Pilot Sent';
     }
 
     card.innerHTML = `
